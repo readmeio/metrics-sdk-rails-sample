@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
       render json: resource, status: :created
     else
       clean_up_passwords resource
-      head :unprocessable_entity
+      render json: resource.errors, status: :unprocessable_entity
     end
   end
 

@@ -3,4 +3,6 @@ Rails.application.routes.draw do
     registrations: 'registrations',
     sessions: 'sessions'
   }
+
+  resources :posts, except: :edit
 end

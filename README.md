@@ -12,9 +12,16 @@ the ReadMe Ruby gem.
 You'll also need an account for the [ReadMe Dashboard](dash.readme.com) to create a project and obtain an
 API key.
 
-## Installation
+## Setup
 
-Clone the repo and from the root directory run:
+Clone the repo and in the root directory run:
+
+```
+cp .env.sample .env
+```
+
+Edit the .env file to include the API key obtained from your projects
+dashboard. Then you can run:
 
 ```
 bundle && rails db:setup
@@ -25,7 +32,7 @@ bundle && rails db:setup
 Once everything is installed and setup you can run the application with:
 
 ```
-METRICS_API_KEY=your-api-key rails s
+rails s
 ```
 
 By default this will run at `localhost:3000`

@@ -69,6 +69,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     ffi (1.13.1)
     globalid (0.4.2)
@@ -176,6 +180,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise
+  dotenv-rails
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

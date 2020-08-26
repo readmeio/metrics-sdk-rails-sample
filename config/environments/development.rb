@@ -29,7 +29,7 @@ Rails.application.configure do
   options = {
     api_key: ENV.fetch("METRICS_API_KEY"),
     development: true,
-    buffer_length: 1,
+    buffer_length: 5,
   }
 
   config.middleware.insert_before 0, Rack::ContentLength

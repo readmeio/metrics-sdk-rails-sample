@@ -23,11 +23,7 @@ Rails.application.configure do
 
   ## Configure middleware
 
-  options = {
-    api_key: ENV.fetch("METRICS_API_KEY"),
-    development: false,
-    buffer_length: 1,
-  }
+  options = { api_key: ENV.fetch("METRICS_API_KEY") }
 
   config.middleware.insert_before 0, Rack::ContentLength
   config.middleware.use Readme::Metrics, options do |env|

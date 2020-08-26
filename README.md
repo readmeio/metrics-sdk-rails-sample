@@ -212,7 +212,7 @@ data is fetched from the WardenProxy contained in the env.
 You'll need to provide a return value for the case where no user is logged in.
 
 ```ruby
-  # application.rb
+  # config/environments/development.rb or config/environments/production.rb
 
   config.middleware.use Readme::Metrics, options do |env|
     current_user = env['warden'].authenticate

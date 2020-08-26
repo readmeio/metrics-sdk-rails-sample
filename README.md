@@ -37,6 +37,36 @@ rails s
 
 By default this will run at `localhost:3000`
 
+## Fetching user info
+
+This sample application uses devise and simple_token_authentication for
+token-based auth. To fetch the current user when create requests for the Readme
+API, user data is fetched from the WardenProxy contained in the env.
+
+You'll need to provide a return value for the case where no user is logged in.
+
+```ruby
+  # config/environments/development.rb or config/environments/production.rb
+
+  config.middleware.use Readme::Metrics, options do |env|
+    current_user = env['warden'].authenticate
+
+    if current_user.present?
+      {
+        id: current_user.id,
+        label: current_user.name,
+        email: current_user.email
+      }
+    else
+      {
+        id: "Sample Rails Application",
+        label: "Guest",
+        email: "guest@example.com"
+      }
+    end
+  end
+```
+
 ## Authentication Endpoints
 
 ### Sign Up
@@ -202,33 +232,3 @@ X-User-Token=z-tweAX_3xDDmoHzobRY;
 Requires no body and returns a 200 on success.
 
 `DELETE http://localhost:3000/posts/:post_id`
-
-## Fetching user info
-
-The application uses devise and simple_token_authentication for token-based
-auth. To fetch the current user when create requests for the Readme API, user
-data is fetched from the WardenProxy contained in the env.
-
-You'll need to provide a return value for the case where no user is logged in.
-
-```ruby
-  # config/environments/development.rb or config/environments/production.rb
-
-  config.middleware.use Readme::Metrics, options do |env|
-    current_user = env['warden'].authenticate
-
-    if current_user.present?
-      {
-        id: current_user.id,
-        label: current_user.name,
-        email: current_user.email
-      }
-    else
-      {
-        id: "Sample Rails Application",
-        label: "Guest",
-        email: "guest@example.com"
-      }
-    end
-  end
-```

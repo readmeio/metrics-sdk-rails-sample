@@ -1,3 +1,5 @@
+> 👋 Our Rails example has moved to a new home within our SDK repository. Check it out [here](https://github.com/readmeio/metrics-sdks/tree/main/packages/ruby/examples/metrics-rails).
+
 # ReadMe Ruby SDK - Sample Rails Application
 
 This repository contains a sample Rails application that shows how to configure
